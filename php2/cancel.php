@@ -13,18 +13,18 @@ session_start();
 
 <?php
 // Captcha
-if(empty($_SESSION['captcha2'] ) ||
-	strcasecmp($_SESSION['captcha2'], $_POST['captcha2']) != 0)
-	{
-		//Note: the captcha code is compared case insensitively.
-		//if you want case sensitive match, update the check above to
-		// strcmp()
-		$errors = "<h3><font color=\"red\">Wrong code!</font></h3>";
-		echo $errors;
-	}
+// if(empty($_SESSION['captcha2'] ) ||
+// 	strcasecmp($_SESSION['captcha2'], $_POST['captcha2']) != 0)
+// 	{
+// 		//Note: the captcha code is compared case insensitively.
+// 		//if you want case sensitive match, update the check above to
+// 		// strcmp()
+// 		$errors = "<h3><font color=\"red\">Wrong code!</font></h3>";
+// 		echo $errors;
+// 	}
 	
-	if(empty($errors))
-	{
+	// if(empty($errors))
+	// {
 		include 'config.php';
 
 		// Create connection
@@ -46,7 +46,7 @@ if(empty($_SESSION['captcha2'] ) ||
 		}
 		
 		mysqli_close($conn);
-	}
+	// }
 ?>
 
 <a href="index.php"><p>Regresar al calendario de registro</p></a>
