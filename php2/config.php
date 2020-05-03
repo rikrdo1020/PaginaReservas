@@ -1,7 +1,7 @@
 <?php
 	$servername = "localhost";
-	$username = "root";
-	$password = "Camaro1$";
+	$username = "bookc_usr";
+	$password = "bookc_pwd01";
 	$dbname = "reservascourt2";
 	$tablename = "bookingcalendar";
 

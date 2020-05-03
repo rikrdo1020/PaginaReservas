@@ -29,7 +29,7 @@ if(empty($_SESSION['captcha2'] ) ||
 
 		// Create connection
 		$conn = mysqli_connect($servername, $username, $password,  $dbname);
-
+		//$conn = mysqli_connect(localhost, bookc_usr, bookc_pwd01, reservascourt2);
 		// Check connection
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error());
@@ -39,7 +39,7 @@ if(empty($_SESSION['captcha2'] ) ||
 
 		$sql = "UPDATE $tablename SET canceled=1 WHERE id = $id";
 		if (mysqli_query($conn, $sql)) {
-			echo "<h3>Booking cancelled.</h3>";
+			echo "<h3>Registro cancelado.</h3>";
 		}
 		else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -49,7 +49,7 @@ if(empty($_SESSION['captcha2'] ) ||
 	}
 ?>
 
-<a href="index.php"><p>Back to the booking calendar</p></a>
+<a href="index.php"><p>Regresar al calendario de registro</p></a>
 
 </body>
 

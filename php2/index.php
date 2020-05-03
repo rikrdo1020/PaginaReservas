@@ -5,7 +5,7 @@
 <style>
 <?php
 // Verificamos la conexión con el servidor y la base de datos
-  $mysqli = new mysqli('localhost', 'root', 'Camaro1$', 'reservascourt2');
+  $mysqli = new mysqli('localhost', 'bookc_usr', 'bookc_pwd01', 'reservascourt2');
 ?>
 html *
 {
@@ -97,11 +97,17 @@ td.calendar-day, td.calendar-day-np {
 <table>
 <tr>
 <td>
-      <button onclick="window.location.href = 'http://192.168.1.11/php3/index.php';">Centro Deportivo A</button>
+      <button onclick="window.location.href = 'http://reservaciones/index.php';">Centro Deportivo A</button>
 </td>
 <td>
-      <button onclick="window.location.href = 'http://192.168.1.11/php2/index.php';">Centro Deportivo B</button>
+      <button onclick="window.location.href = 'http://reservaciones/index.php';">Centro Deportivo B</button>
 </td>
+
+<td>
+      <button onclick="window.location.href = 'http://reservaciones/formulario.php';">Insertar Usuario</button>
+</td>
+
+
 </tr>
 </table>   
 <table border="1" cellpadding="5" width="800">
@@ -191,7 +197,7 @@ td.calendar-day, td.calendar-day-np {
         <option value="0">Seleccione:</option>
         <?php
 // Realizamos la consulta para extraer los datos
-          $query = $mysqli -> query ("SELECT * FROM usuario");
+          $query = $mysqli -> query ("SELECT * FROM usuario_view");
           while ($valores = mysqli_fetch_array($query)) {
 // En esta sección estamos llenando el select con datos extraidos de una base de datos.
             echo '<option value="'.$valores[id_usuario].'">'.$valores[nombre_completo].'</option>';

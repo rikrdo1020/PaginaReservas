@@ -6,7 +6,7 @@ session_start();
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Make booking</title>
+<title>Calendario de reserva</title>
 </head>
 
 <body>
@@ -65,7 +65,7 @@ session_start();
 		$sql = "INSERT INTO $tablename ( item, start_day, start_time, end_day, end_time, id_usuario,canceled,Estado_Reserva)
 			VALUES ('$item', $start_day, $start_time, $end_day, $end_time,$usuario, 0,1)";
 		if (mysqli_query($conn, $sql)) {
-		    echo "<h3>Booking succeed.</h3>";
+		    echo "<h3>Reservado con exito.</h3>";
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
@@ -75,7 +75,7 @@ session_start();
 	}
 ?>
 
-<a href="index.php"><p>Back to the booking calendar</p></a>
+<a href="index.php"><p>Regresar al calendario de reserva</p></a>
 
 </body>
 
