@@ -133,8 +133,12 @@ INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `nombre`, `apellido`, `co
 -- Dumping structure for view reservascourt2.reservas_view
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `reservas_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`192.168.1.7` SQL SECURITY DEFINER VIEW `reservas_view` AS select `a`.`id` AS `id`,`b`.`telefono` AS `telefono`,`e`.`id_ubicacion` AS `id_ubicacion`,`c`.`nombre_cancha` AS `nombre_cancha`,`d`.`Nombre_Centro_Deportivo` AS `Nombre_Centro_Deportivo`,concat(`b`.`nombre`,' ',`b`.`apellido`) AS `nombre_completo`,`a`.`id` AS `id_reserva`,`a`.`id_usuario` AS `id_usuario`,`a`.`Estado_Reserva` AS `estado_reserva`,`a`.`item` AS `item`,`a`.`start_day` AS `start_day`,`a`.`end_day` AS `end_day`,`a`.`start_time` AS `start_time`,`a`.`end_time` AS `end_time`,`a`.`canceled` AS `canceled` from ((((`bookingcalendar` `a` join `usuario` `b`) join `cancha` `c`) join `centro_deportivo` `d`) join `ubicacion` `e`) where ((`a`.`id_usuario` = `b`.`id_usuario`) and (`c`.`item_cancha` = `a`.`item`) and (`c`.`id_centro_deportivo` = `d`.`id_centro_deportivo`) and (`d`.`id_ubicacion` = `e`.`id_ubicacion`));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservas_view` AS select `a`.`id` AS `id`,`b`.`telefono` AS `telefono`,`e`.`id_ubicacion` AS `id_ubicacion`,`c`.`nombre_cancha` AS `nombre_cancha`,`d`.`Nombre_Centro_Deportivo` AS `Nombre_Centro_Deportivo`,concat(`b`.`nombre`,' ',`b`.`apellido`) AS `nombre_completo`,`a`.`id` AS `id_reserva`,`a`.`id_usuario` AS `id_usuario`,`a`.`Estado_Reserva` AS `estado_reserva`,`a`.`item` AS `item`,`a`.`start_day` AS `start_day`,`a`.`end_day` AS `end_day`,`a`.`start_time` AS `start_time`,`a`.`end_time` AS `end_time`,`a`.`canceled` AS `canceled` from ((((`bookingcalendar` `a` join `usuario` `b`) join `cancha` `c`) join `centro_deportivo` `d`) join `ubicacion` `e`) where ((`a`.`id_usuario` = `b`.`id_usuario`) and (`c`.`item_cancha` = `a`.`item`) and (`c`.`id_centro_deportivo` = `d`.`id_centro_deportivo`) and (`d`.`id_ubicacion` = `e`.`id_ubicacion`));
+
+
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+FLUSH PRIVILEGES;

@@ -16,10 +16,10 @@
 <table>
 <tr>
 <td>
-      <button onclick="window.location.href = 'http://reservaciones/index.php';">Centro Deportivo A</button>
+      <button onclick="window.location.href = 'http://localhost/php2/index.php';">Centro Deportivo A</button>
 </td>
 <td>
-      <button onclick="window.location.href = 'http://reservaciones2/index.php';">Centro Deportivo B</button>
+      <button onclick="window.location.href = 'http://loclahost/php2/index.php';">Centro Deportivo B</button>
 </td>
 </tr>
 </table>   
