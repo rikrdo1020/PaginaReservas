@@ -1,0 +1,191 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f3f3f3;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h16v2h-6v6h6v8H8v-6H2v6H0V0zm4 4h2v2H4V4zm8 8h2v2h-2v-2zm-8 0h2v2H4v-2zm8-8h2v2h-2V4z' fill='%23cfffdf' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    color:#2d3436;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+}
+
+.titulo{
+    text-align: center;
+    padding: 20px 0;
+}
+
+ul{
+    list-style: none;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+/* Navigation */
+.nav-main{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    
+    height: 60px;
+    padding: 20px 0;
+}
+
+/* NAV LEFT */
+.nav-main ul{
+    display: flex;
+}
+
+.nav-main ul li{
+    padding: 10px;
+}
+
+
+.nav-main ul.nav-menu{
+    flex: 1;
+    margin-left: 20px;
+}
+
+
+.btn{
+    background-color: #b2bec3; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover{
+    opacity: .7;
+}
+
+/**/
+
+.input-boxes{
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 10px auto;
+
+  align-items: center;
+}
+
+.input-boxes label{
+    margin: 5px 10px 5px 0;
+}
+.input-boxes h3{
+    font-size: 20px;
+    margin: 10px auto;
+    text-align: center;
+    margin-left: 10px;
+    padding-bottom: 10px;
+}
+.input-boxes p{
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/*Estilizando radio buttom*/
+.label-container{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+  }
+  .label-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  .label-container input:checked ~ .checkmark {
+    background-color: #2ed573;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .label-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+.input-boxes input{
+    width: 25%;
+}
+/*.btn-book input[type=button],[type=submit]{
+    
+    background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 20px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}*/
+
+.btn-book input[type=submit]{
+    width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-book:hover{
+    opacity: .7;
+}
