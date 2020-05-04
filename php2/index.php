@@ -123,7 +123,7 @@
 	<div class="titulo">
 		<div class="titulo container text-center py-5">
 			<h1 class="display-3 text-white">Calendario de Reservas</h1>
-			<h2 class="h5 text-white">Centro Deportivo B</h2>
+			<h2 class="h5 text-white">Centro Deportivo A</h2>
 			<h3 class="h5 text-white">Chiriqui</h3>
 		</div>
 	</div>
