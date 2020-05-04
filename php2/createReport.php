@@ -1,5 +1,19 @@
 <?php
-$centro = $_POST['centro'];
+$centroA = $_POST['centroA'];
+$centroB = $_POST['centroB'];
+$centro = "indefinido";
+
+if (isset($centroA)){
+    global $centro;
+    $centro="4";
+}else if(isset($centroB)){
+    global $centro;
+    $centro="8";
+}
+
+if($centro== "indefinido"){
+    echo "<h1>ERROR!!</h1>";
+}
 
 function draw_calendar($month, $year)
 {
