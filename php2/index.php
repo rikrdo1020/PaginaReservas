@@ -86,7 +86,9 @@
 	<!--<script src="lang/datepicker-fi.js"></script>-->
 	<script>
 		$(function() {
-			<!--$.datepicker.setDefaults($.datepicker.regional['fi']);-->
+			<
+			!--$.datepicker.setDefaults($.datepicker.regional['fi']);
+			-- >
 			$("#from").datepicker({
 				defaultDate: "+1w",
 				changeMonth: true,
@@ -110,9 +112,9 @@
 
 <body>
 	<div class="titulo">
-		<h1 name="centro" value="1">Calendario de Reservas - Centro Deportivo A - CHIRIQUI</h1>
+		<h1>Calendario de Reservas - Centro Deportivo A - CHIRIQUI</h1>
 	</div>
-	
+
 	<hr>
 	<div class="container">
 		<div class="nav-main">
@@ -126,6 +128,10 @@
 				<ul>
 					<button onclick="window.location.href = 'http://localhost/php2/formulario.php';">Insertar Usuario</button>
 				</ul>
+				<!-- <ul>
+					<button onclick="window.location.href = 'http://localhost/php2/createReport.php';">Crear reporte</button>
+				</ul> -->
+
 			</nav>
 
 
@@ -252,6 +258,26 @@
 				<p>ID: <input name="id" required="" type="text" /></p>
 				<p class="btn-book"><input name="cancel" type="submit" value="Cancel" /></p>
 			</form>
+
+
+		</div>
+
+		<div>
+
+		<form action="createReport.php" method="post">
+				<p>
+					<Label>Reporte</Label>
+					<select name="centro">
+						<option value="4">Centro A</option>
+						<option value="8">Centro B</option>
+						
+					</select>
+				</p>
+				<p class="btn-book">
+					<input name="book" type="submit" value="Generar Reporte" />
+				</p>
+
+				</form>
 		</div>
 	</div>
 

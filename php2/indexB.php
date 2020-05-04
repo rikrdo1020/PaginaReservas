@@ -364,12 +364,7 @@
 	}
 
 	include 'config.php';
-
-
-	$d = new DateTime(date("Y-m-d"));
-	echo '<h3>' . $months[$d->format('n') - 1] . ' ' . $d->format('Y') . '</h3> <br>';
-	echo draw_calendar($d->format('m'), $d->format('Y'));
-	echo '<br><br>';
+    
 
 	for ($i = 0; $i < 11; $i++) {
 		$d->modify('first day of next month');
