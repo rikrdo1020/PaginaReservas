@@ -1,5 +1,6 @@
 <?php
 session_start();
+$centro=1;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,6 +45,7 @@ session_start();
 		$usuario = htmlspecialchars($_POST['usuario']);
 		$start_epoch = $start_day + $start_time;
 		$end_epoch = $end_day + $end_time;
+		//$centro=intval(htmlspecialchars($POST["centro"]));
 
 		// prevent double booking
 		$sql = "SELECT * FROM $tablename WHERE item='$item' AND (start_day>=$start_day OR end_day>=$start_day) AND canceled=0";

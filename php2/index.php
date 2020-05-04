@@ -2,105 +2,117 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<style>
-<?php
-// Verificamos la conexión con el servidor y la base de datos
-  $mysqli = new mysqli('localhost', 'root', '', 'reservascourt2');
-?>
-html *
-{
-   font-family: Arial !important;*/
-}
-table.calendar {
-	border-left: 1px solid #999;
-}
-tr.calendar-row {
-}
-td.calendar-day {
-	min-height: 80px;
-	font-size: 11px;
-	position: relative;
-	vertical-align: top;
-}
-* html div.calendar-day {
-	height: 80px;
-}
-td.calendar-day:hover {
-	background: #eceff5;
-}
-td.calendar-day-np {
-	background: #eee;
-	min-height: 80px;
-}
-* html div.calendar-day-np {
-	height: 80px;
-}
-td.calendar-day-head {
-	background: #ccc;
-	font-weight: bold;
-	text-align: center;
-	width: 120px;
-	padding: 5px;
-	border-bottom: 1px solid #999;
-	border-top: 1px solid #999;
-	border-right: 1px solid #999;
-}
-div.day-number {
-	background: #999;
-	padding: 5px;
-	color: #fff;
-	font-weight: bold;
-	float: right;
-	margin: -5px -5px 0 0;
-	width: 20px;
-	text-align: center;
-}
-td.calendar-day, td.calendar-day-np {
-	width: 120px;
-	padding: 5px;
-	border-bottom: 1px solid #999;
-	border-right: 1px solid #999;
-}
-</style>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Booking calendar - DEMO</title>
-<link href="jquery-ui.css" rel="stylesheet">
+	<style>
+		<?php
+		// Verificamos la conexión con el servidor y la base de datos
+		$mysqli = new mysqli('localhost', 'root', '', 'reservascourt2');
+		$centro = "A";
+		?>html * {
+			font-family: Arial !important;
+			*/
+		}
 
-<!-- CUSTOM CSS-->
-<link rel="stylesheet" href="style.css">
-<!-- PT SANS FONT -->
-<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+		table.calendar {
+			border-left: 1px solid #999;
+		}
 
-<script src="jquery-1.10.2.js"></script>
-<script src="jquery-ui.js"></script>
-<!--<script src="lang/datepicker-fi.js"></script>-->
-<script>
-    $(function() {
-	<!--$.datepicker.setDefaults($.datepicker.regional['fi']);-->
-    $( "#from" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 3,
-      onClose: function( selectedDate ) {
-        $( "#to" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-    $( "#to" ).datepicker({
-      defaultDate: "+1w",
-	  regional: "fi",
-      changeMonth: true,
-      numberOfMonths: 3,
-      onClose: function( selectedDate ) {
-        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    });
-  });  </script>
+		tr.calendar-row {}
+
+		td.calendar-day {
+			min-height: 80px;
+			font-size: 11px;
+			position: relative;
+			vertical-align: top;
+		}
+
+		* html div.calendar-day {
+			height: 80px;
+		}
+
+		td.calendar-day:hover {
+			background: #eceff5;
+		}
+
+		td.calendar-day-np {
+			background: #eee;
+			min-height: 80px;
+		}
+
+		* html div.calendar-day-np {
+			height: 80px;
+		}
+
+		td.calendar-day-head {
+			background: #ccc;
+			font-weight: bold;
+			text-align: center;
+			width: 120px;
+			padding: 5px;
+			border-bottom: 1px solid #999;
+			border-top: 1px solid #999;
+			border-right: 1px solid #999;
+		}
+
+		div.day-number {
+			background: #999;
+			padding: 5px;
+			color: #fff;
+			font-weight: bold;
+			float: right;
+			margin: -5px -5px 0 0;
+			width: 20px;
+			text-align: center;
+		}
+
+		td.calendar-day,
+		td.calendar-day-np {
+			width: 120px;
+			padding: 5px;
+			border-bottom: 1px solid #999;
+			border-right: 1px solid #999;
+		}
+	</style>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Booking calendar - DEMO</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+
+	<!-- CUSTOM CSS-->
+	<link rel="stylesheet" href="style.css">
+	<!-- PT SANS FONT -->
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+	<script src="jquery-1.10.2.js"></script>
+	<script src="jquery-ui.js"></script>
+	<!--<script src="lang/datepicker-fi.js"></script>-->
+	<script>
+		$(function() {
+			<!--$.datepicker.setDefaults($.datepicker.regional['fi']);-->
+			$("#from").datepicker({
+				defaultDate: "+1w",
+				changeMonth: true,
+				numberOfMonths: 3,
+				onClose: function(selectedDate) {
+					$("#to").datepicker("option", "minDate", selectedDate);
+				}
+			});
+			$("#to").datepicker({
+				defaultDate: "+1w",
+				regional: "fi",
+				changeMonth: true,
+				numberOfMonths: 3,
+				onClose: function(selectedDate) {
+					$("#from").datepicker("option", "maxDate", selectedDate);
+				}
+			});
+		});
+	</script>
 </head>
 
 <body>
 	<div class="titulo">
-		<h1>Calendario de Reservas - Centro Deportivo B - CHIRIQUI</h1>
+		<h1 name="centro" value="1">Calendario de Reservas - Centro Deportivo A - CHIRIQUI</h1>
 	</div>
+	
 	<hr>
 	<div class="container">
 		<div class="nav-main">
@@ -109,145 +121,145 @@ td.calendar-day, td.calendar-day-np {
 					<li><button onclick="window.location.href = 'http://localhost/php2/index.php';" class="btn">Centro Deportivo A</button></li>
 				</ul>
 				<ul>
-					<li><button onclick="window.location.href = 'http://localhost/php2/index.php';" class="btn">Centro Deportivo B</button></li>
+					<li><button onclick="window.location.href = 'http://localhost/php2/indexB.php';" class="btn">Centro Deportivo B</button></li>
 				</ul>
 				<ul>
-				<button onclick="window.location.href = 'http://localhost/php2/formulario.php';">Insertar Usuario</button>
+					<button onclick="window.location.href = 'http://localhost/php2/formulario.php';">Insertar Usuario</button>
 				</ul>
 			</nav>
-			
+
 
 		</div>
 	</div>
 	<div class="input-boxes">
-	<h3>Hacer reservacion</h3>
-	<h3>Cancelar reservacion</h3>
+		<h3>Hacer reservacion</h3>
+		<h3>Cancelar reservacion</h3>
 	</div>
 	<div class="input-boxes">
 		<div class="box">
-			
-			<form action="book.php" method="POST">
-					
-					<p class="radio-box">
-						<Label class="label-container">Fulbito
-						<input checked="checked" name="item" type="radio" value="1"/>
-						<span class="checkmark"></span>
-						</Label>
-						<Label class="label-container">Basket
-						<input  name="item" type="radio" value="2"/>
-						<span class="checkmark"></span>
-						</Label>
-						<Label class="label-container">Baseball
-						<input  name="item" type="radio" value="3"/>
-						<span class="checkmark"></span>
-						</Label>
-						<Label class="label-container">Tennis
-						<input  name="item" type="radio" value="4"/>
-						<span class="checkmark"></span>
-						</Label>
-					</p>
-					
-					<p>
-						<Label>Tiempo de Reservacion</Label>
-						<input id="from" name="start_day" required="" type="text" />
-						<Label> - </Label>
-						<input id="to" name="end_day" required="" type="text" />
-					</p>
-					<p>
-						<select name="start_hour">
-							<option selected="selected">00</option>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-							<option>04</option>
-							<option>05</option>
-							<option>06</option>
-							<option>07</option>
-							<option>08</option>
-							<option>09</option>
-							<option>10</option>
-							<option>11</option>
-							<option>12</option>
-							<option>13</option>
-							<option>14</option>
-							<option>15</option>
-							<option>16</option>
-							<option>17</option>
-							<option>18</option>
-							<option>19</option>
-							<option>20</option>
-							<option>21</option>
-							<option>22</option>
-							<option>23</option>
-							</select>:<select name="start_minute">
-							<option selected="selected">00</option>
-							<option>30</option>
-						</select>
 
-						<select name="end_hour">
-							<option>00</option>
-							<option>01</option>
-							<option>02</option>
-							<option>03</option>
-							<option>04</option>
-							<option>05</option>
-							<option>06</option>
-							<option>07</option>
-							<option>08</option>
-							<option>09</option>
-							<option>10</option>
-							<option>11</option>
-							<option>12</option>
-							<option>13</option>
-							<option>14</option>
-							<option>15</option>
-							<option>16</option>
-							<option>17</option>
-							<option>18</option>
-							<option>19</option>
-							<option>20</option>
-							<option>21</option>
-							<option>22</option>
-							<option selected="selected">23</option>
-							</select>:<select name="end_minute">
-							<option>00</option>
-							<option selected="selected">30</option>
-						</select>
-					</p>
-					<p>
-						<Label>Usuario</Label>
-						<select name="usuario">
-							<option value="0">Seleccione:</option>
-							<?php
-							// Realizamos la consulta para extraer los datos
-							$query = $mysqli -> query ("SELECT * FROM usuario");
-							while ($valores = mysqli_fetch_array($query)) {
+			<form action="book.php" method="POST">
+
+				<p class="radio-box">
+					<Label class="label-container">Fulbito
+						<input checked="checked" name="item" type="radio" value="1" />
+						<span class="checkmark"></span>
+					</Label>
+					<Label class="label-container">Basket
+						<input name="item" type="radio" value="2" />
+						<span class="checkmark"></span>
+					</Label>
+					<Label class="label-container">Baseball
+						<input name="item" type="radio" value="3" />
+						<span class="checkmark"></span>
+					</Label>
+					<Label class="label-container">Tennis
+						<input name="item" type="radio" value="4" />
+						<span class="checkmark"></span>
+					</Label>
+				</p>
+
+				<p>
+					<Label>Tiempo de Reservacion</Label>
+					<input id="from" name="start_day" required="" type="text" />
+					<Label> - </Label>
+					<input id="to" name="end_day" required="" type="text" />
+				</p>
+				<p>
+					<select name="start_hour">
+						<option selected="selected">00</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+					</select>:<select name="start_minute">
+						<option selected="selected">00</option>
+						<option>30</option>
+					</select>
+
+					<select name="end_hour">
+						<option>00</option>
+						<option>01</option>
+						<option>02</option>
+						<option>03</option>
+						<option>04</option>
+						<option>05</option>
+						<option>06</option>
+						<option>07</option>
+						<option>08</option>
+						<option>09</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option selected="selected">23</option>
+					</select>:<select name="end_minute">
+						<option>00</option>
+						<option selected="selected">30</option>
+					</select>
+				</p>
+				<p>
+					<Label>Usuario</Label>
+					<select name="usuario">
+						<option value="0">Seleccione:</option>
+						<?php
+						// Realizamos la consulta para extraer los datos
+						$query = $mysqli->query("SELECT * FROM usuario_view");
+						while ($valores = mysqli_fetch_array($query)) {
 							// En esta sección estamos llenando el select con datos extraidos de una base de datos.
-								echo '<option value="'.$valores[id_usuario].'">'.$valores[nombre_completo].'</option>';
-							}
-							?>
-						</select>
-					</p>
-					<p class="btn-book">
-						<input name="book" type="submit" value="Book"/>
-					</p>
+							echo '<option value="' . $valores[id_usuario] . '">' . $valores[nombre_completo] . '</option>';
+						}
+						?>
+					</select>
+				</p>
+				<p class="btn-book">
+					<input name="book" type="submit" value="Book" />
+				</p>
 
 			</form>
 		</div>
-        <div>
-			
-            <form action="cancel.php" method="POST">
-                <p>ID: <input name="id" required="" type="text" /></p>
-                <p class="btn-book"><input name="cancel" type="submit" value="Cancel" /></p>
-            </form>
+		<div>
+
+			<form action="cancel.php" method="POST">
+				<p>ID: <input name="id" required="" type="text" /></p>
+				<p class="btn-book"><input name="cancel" type="submit" value="Cancel" /></p>
+			</form>
 		</div>
 	</div>
 
 
 
-<?php
-/* draws a calendar */
-function draw_calendar($month, $year)
+	<?php
+	/* draws a calendar */
+	function draw_calendar($month, $year)
 	{
 
 		include 'config.php';
@@ -360,13 +372,13 @@ function draw_calendar($month, $year)
 	echo draw_calendar($d->format('m'), $d->format('Y'));
 	echo '<br><br>';
 
-	for ($i=0; $i < 11; $i++) { 
-	$d->modify('first day of next month');
-	echo '<h3>' . $months[$d->format('n') - 1] . ' ' . $d->format('Y') . '</h3><br>';
-	echo draw_calendar($d->format('m'), $d->format('Y'));
-	echo '<br><br>';
+	for ($i = 0; $i < 11; $i++) {
+		$d->modify('first day of next month');
+		echo '<h3>' . $months[$d->format('n') - 1] . ' ' . $d->format('Y') . '</h3><br>';
+		echo draw_calendar($d->format('m'), $d->format('Y'));
+		echo '<br><br>';
 	}
-	
+
 
 	// $d->modify('first day of next month');
 	// echo '<h3>' . $months[$d->format('n') - 1] . ' ' . $d->format('Y') . '</h3>';
